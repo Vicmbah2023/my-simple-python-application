@@ -17,3 +17,11 @@ jobs:
         uses: docker/metadata-action@v4             
         with:            
           images: vickdocker2023/gitbuhactionrepo
+      - name: Build and push                 
+        uses: docker/build-push-action@v4              
+        with:             
+          context: .           
+          push: true            
+          tags: ${{ steps.meta.outputs.tags }}                 
+          labels: ${{ steps.meta.output.labels }}
+ 
